@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:indian_rupee_formatter_app/constants/textconstants.dart';
 
-class IndianNumberInput extends StatefulWidget {
+class AmountInputField extends StatefulWidget {
   final TextEditingController controller;
 
-  const IndianNumberInput({super.key, required this.controller});
+  const AmountInputField({super.key, required this.controller});
 
   @override
-  State<IndianNumberInput> createState() => _IndianNumberInputState();
+  State<AmountInputField> createState() => _AmountInputFieldState();
 }
 
-class _IndianNumberInputState extends State<IndianNumberInput> {
+class _AmountInputFieldState extends State<AmountInputField> {
   FocusNode numberFocusNode = FocusNode();
   String lastInputValue = '';
 

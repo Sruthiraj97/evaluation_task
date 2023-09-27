@@ -34,7 +34,7 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
                 customText(TextConstants.enterAmount, Colors.black),
                 customSizedBox(24.0),
                 customSizedBox(12.0),
-                IndianNumberInput(controller: _textEditingController),
+                AmountInputField(controller: _textEditingController),
               ],
             ),
           ),
