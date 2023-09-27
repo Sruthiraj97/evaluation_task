@@ -23,11 +23,11 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
     return Scaffold(
       appBar: customAppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: commonEdgeInsets,
         child: Card(
-          margin: const EdgeInsets.all(16.0),
+          margin: commonEdgeInsets,
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: commonEdgeInsets,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -77,3 +77,5 @@ Text customText(String text, Color color) {
     style: customTextStyle(color: color),
   );
 }
+
+const EdgeInsets commonEdgeInsets = EdgeInsets.all(16.0);
