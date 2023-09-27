@@ -23,7 +23,6 @@ class _AmountInputFieldState extends State<AmountInputField> {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        // child: _buildCustomTextField(),
         child: TextField(
           focusNode: numberFocusNode,
           textAlign: TextAlign.center,
@@ -52,7 +51,6 @@ class _AmountInputFieldState extends State<AmountInputField> {
   }
 
   void _handleInputChange(String value) {
-    // Remove unwanted characters (special characters and alphabets)
     value = value.replaceAll(RegExp(r'[^0-9.₹]'), '');
 
     String formattedValue = value;
@@ -63,10 +61,9 @@ class _AmountInputFieldState extends State<AmountInputField> {
       formattedValue = _formatIndianNumber(formattedValue);
     }
 
-    // Check if the input is empty and set the hint text accordingly
     if (formattedValue.isEmpty) {
       widget.controller.value = const TextEditingValue(
-        text: '', // Clear the text
+        text: '',
         selection: TextSelection.collapsed(offset: 0),
       );
     } else {
