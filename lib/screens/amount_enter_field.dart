@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:indian_rupee_formatter_app/constants/textconstants.dart';
+import 'package:indian_rupee_formatter_app/screens/input_done_view.dart';
 
 class AmountInputField extends StatefulWidget {
   final TextEditingController controller;
@@ -13,6 +14,18 @@ class AmountInputField extends StatefulWidget {
 class _AmountInputFieldState extends State<AmountInputField> {
   FocusNode numberFocusNode = FocusNode();
   String lastInputValue = '';
+  @override
+  void initState() {
+    numberFocusNode.addListener(() {
+      bool hasFocus = numberFocusNode.hasFocus;
+      if (hasFocus) {
+        DoneButtonOverlay.showOverlay(context);
+      } else {
+        DoneButtonOverlay.removeOverlay();
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
