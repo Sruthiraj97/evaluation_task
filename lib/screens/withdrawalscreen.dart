@@ -24,18 +24,22 @@ class _WithdrawalScreenState extends State<WithdrawalScreen> {
       appBar: customAppBar(),
       body: Padding(
         padding: commonEdgeInsets,
-        child: Card(
-          margin: commonEdgeInsets,
-          child: Padding(
-            padding: commonEdgeInsets,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                customText(TextConstants.enterAmount, Colors.black),
-                customSizedBox(24.0),
-                customSizedBox(12.0),
-                AmountInputField(controller: _textEditingController),
-              ],
+        child: SizedBox(
+          height: 200.0,
+          child: Card(
+            margin: commonEdgeInsets,
+            child: Padding(
+              padding: commonEdgeInsets,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  customText(TextConstants.enterAmount, Colors.black),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.0),
+                  ),
+                  AmountInputField(controller: _textEditingController),
+                ],
+              ),
             ),
           ),
         ),

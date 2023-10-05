@@ -23,21 +23,7 @@ class _AmountInputFieldState extends State<AmountInputField> {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: TextField(
-          focusNode: numberFocusNode,
-          textAlign: TextAlign.center,
-          controller: widget.controller,
-          keyboardType: const TextInputType.numberWithOptions(decimal: true),
-          decoration: _buildInputDecoration(),
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-          onSubmitted: (_) {
-            FocusScope.of(context).unfocus();
-          },
-          onChanged: _handleInputChange,
-        ),
+        child: customTextField(),
       ),
     );
   }
@@ -86,7 +72,12 @@ class _AmountInputFieldState extends State<AmountInputField> {
       decimalPart = decimalPart.substring(0, 3);
     }
 
-    String lastDigit = integerPart[integerPart.length - 1];
+    String lastDigit = '';
+    if (integerPart.isNotEmpty) {
+      lastDigit = integerPart[integerPart.length - 1];
+    }
+
+    // String lastDigit = integerPart[integerPart.length - 1];
     String result = '';
     int len = integerPart.length - 1;
     int nDigits = 0;
@@ -99,5 +90,24 @@ class _AmountInputFieldState extends State<AmountInputField> {
     }
 
     return result + lastDigit + decimalPart;
+  }
+
+  Widget customTextField() {
+    return TextField(
+      // maxLength: 10,
+      focusNode: numberFocusNode,
+      textAlign: TextAlign.center,
+      controller: widget.controller,
+      keyboardType: const TextInputType.numberWithOptions(decimal: true),
+      decoration: _buildInputDecoration(),
+      style: const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+      ),
+      onSubmitted: (_) {
+        FocusScope.of(context).unfocus();
+      },
+      onChanged: _handleInputChange,
+    );
   }
 }
